@@ -2,7 +2,9 @@ import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './slices/counterSlicer'
 
 const store = configureStore({
-    reducer: {counterReducer}
-})
+    reducer: {
+        counterReducer,
+    }
+});
 
 export default store

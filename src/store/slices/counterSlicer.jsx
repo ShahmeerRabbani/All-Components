@@ -11,12 +11,15 @@ const countSlicer = createSlice({
     reducers : {
         addCounter : (state, action) => {
             state.counter = ++state.counter
+        },
+        minusCounter :(state, action) =>{
+            state.counter = state.counter > 0 ? --state.counter : 0
         }
     }
 })
 
-const {action, reducer} = countSlicer;
+const {actions, reducer} = countSlicer;
 
-export const {addCounter} = action;
+export const {addCounter, minusCounter} = actions;
 
 export default reducer

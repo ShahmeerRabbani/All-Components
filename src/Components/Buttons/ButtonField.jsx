@@ -1,11 +1,24 @@
 import { Button } from '@mui/material'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addCounter, minusCounter } from '../../store/slices/counterSlicer'
 
 const ButtonField = () => {
+
+  const dispatch = useDispatch()
+
+  const handleAction = () => {
+    dispatch(addCounter())
+  }
+
+  const handleMinus = () => {
+    dispatch(minusCounter())
+  }
+
   return (
     <div>
-      <h1>Button</h1>
-      <Button variant='contained'>Click me</Button>
+      <Button onClick = {handleAction} variant='contained'>Add me</Button>
+      <Button onClick = {handleMinus} variant='contained'>Minus me</Button>
     </div>
   )
 }
