@@ -6,6 +6,7 @@ import StickyHeadTable from '../Components/Table/Table'
 import { useSelector } from 'react-redux'
 import Radiobtn from '../Components/Radiobtn/Radiobtn'
 import IconBtn from '../Components/Icons/IconBtn'
+import ProCard from '../Components/ProductCards/ProCard'
 
 const Dashboard = () => {
   
@@ -19,6 +20,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <InputField/>
       <h1>Counter With Redux : {counter}</h1>
+      <ProCard/>
       <ButtonField/>
       <Radiobtn/>
       <IconBtn/>
