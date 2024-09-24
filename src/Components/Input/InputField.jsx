@@ -1,11 +1,21 @@
 import { TextField } from '@mui/material'
 import React from 'react'
+import styles from "./InputField.module.css";
 
-const InputField = () => {
+const InputField = ({ label, placeholder, type, onchange }) => {
   return (
-    <div>
-      <TextField label='Enter your text' variant='outlined'/>
-    </div>
+    <p>
+        <label htmlFor="name">{label}</label> <br />
+        <input
+        onChange={onchange}
+          className={styles.Input_field}
+          type={type}
+          name=""
+          id=""
+          placeholder={placeholder}
+          required
+        />
+      </p>
   )
 }
 
