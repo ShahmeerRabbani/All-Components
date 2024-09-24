@@ -24,7 +24,7 @@ const Sidebar = () => {
       title: "Customer",
       // dropdown_text1: "User Form",
       dropdown_text1: "Customer List",
-      dropdown_link: ['/user/userForm', '/user/userList'],
+      dropdown_link: [ '/user/userList'],
     },
     {
       id: 2,

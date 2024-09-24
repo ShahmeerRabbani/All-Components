@@ -12,7 +12,7 @@ import PoolTwoToneIcon from "@mui/icons-material/PoolTwoTone";
 import LocalDiningTwoToneIcon from "@mui/icons-material/LocalDiningTwoTone";
 import SpaTwoToneIcon from "@mui/icons-material/SpaTwoTone";
 import ModalForm from "../Components/ModalForm/ModalForm";
-import { useLocation, useParams } from "react-router-dom";
+import WelcomeImage from '../assets/welcome.jpg'
 
 const LandingPage = () => {
 
@@ -37,7 +37,9 @@ const LandingPage = () => {
         sx={{
           width: "100%",
           height: "500px",
-          bgcolor: "seagreen",
+          backgroundImage: `url(${WelcomeImage})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
         }}
       ></Box>
       <Box
@@ -45,7 +47,7 @@ const LandingPage = () => {
           width: "100%",
           height: "500px",
           padding: "50px 50px",
-          bgcolor: "lightskyblue",
+          bgcolor: "#C3C9CF",
           display: "flex",
           alignItems: "center",
           flexDirection: "column",

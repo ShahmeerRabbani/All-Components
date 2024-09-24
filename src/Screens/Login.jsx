@@ -38,16 +38,20 @@ const Login = () => {
 
     if(staff){
       if(staffEmail.trim() === '' || staffPassword.trim() === ''){
+
         Swal.fire({
           icon: 'warning',
           title: 'Fill all the Inputs'
+
       })
       }
+
       else{
 
         if(staffCheck){
 
           await signInWithEmailAndPassword(auth, staffEmail, staffPassword)
+
         .then(async(staffCredential) => {
   
           const StaffId = staffCredential.user.uid
@@ -55,32 +59,46 @@ const Login = () => {
           localStorage.setItem('StaffID', StaffId)
           
           await getDoc(doc(db, 'staffSignUpInfo', StaffId))
+
           .then((res) => {
+
             localStorage.setItem('StaffInformation', JSON.stringify(res.data()))
+
           })
+
           .catch((err) => {
+
             console.error(err)
+
           })
+
           Swal.fire({
             title: "Login Successfully...",
             icon: "success"
           });
+
           navigate('/dashboard', {state: StaffId})
+
         })
+
         .catch((error) => {
+
           Swal.fire({
             icon: "error",
             title: error,
             text: "Something went wrong!",
           });
+
         })
       
         }
         else{
+
           Swal.fire({
             icon: 'warning',
             title: 'First make staff account'
         })
+
         }
         
       }
@@ -88,10 +106,12 @@ const Login = () => {
     else{
 
       if(userName.trim() === '' || email.trim() === '' || password.trim() === ''){
+
         Swal.fire({
           icon: 'warning',
           title: 'Fill all the Inputs'
       })
+
       }
       else{
 
@@ -117,6 +137,7 @@ const Login = () => {
               title: "Login Successfully...",
               icon: "success"
             });
+            
             navigate('/home', {state: userId})
           })
           .catch((error) => {

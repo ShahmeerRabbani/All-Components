@@ -52,16 +52,20 @@ const SignUp = () => {
 
         if(isStaff){
           if(name.trim() === '' || phone === 0 || email.trim() === '' || cnic === 0 || password.trim() === ''){
+
             Swal.fire({
               icon: 'warning',
               title: 'Fill all the Inputs'
           })
+
           }
           else{
-            await createUserWithEmailAndPassword(auth, email, password)
-               .then(async (userCredential) => {
-                   const userId = userCredential.user.uid
 
+            await createUserWithEmailAndPassword(auth, email, password)
+
+               .then(async (userCredential) => {
+
+                   const userId = userCredential.user.uid
                    
                    await setDoc(doc(db, 'staffSignUpInfo', userId), StaffObj)
                    
@@ -69,14 +73,17 @@ const SignUp = () => {
                      title: "Sign Up Successfully...",
                      icon: "success"
                     });
+
                     localStorage.setItem('staffCheck',  userId)
+
                      navigate('/', {state: userId})
+
                })
                .catch((error) => {
                    Swal.fire({
                        icon: "error",
                        title: "Oops...",
-                       text: "Something went wrong!",
+                       text: {error},
                      });
                })
           }
@@ -84,14 +91,19 @@ const SignUp = () => {
         else{
 
           if(name.trim() === '' || userName.trim() === '' || email.trim() === '' || password.trim() === ''){
+
               Swal.fire({
                   icon: 'warning',
                   title: 'Fill all the Inputs'
               })
+
           }
           else{
+
               await createUserWithEmailAndPassword(auth, email, password)
+
                .then(async (userCredential) => {
+
                    const userId = userCredential.user.uid
        
                    await setDoc(doc(db, 'signUpInfo', userId), AuthObj)
@@ -100,15 +112,20 @@ const SignUp = () => {
                        title: "Sign Up Successfully...",
                        icon: "success"
                      });
+
                      localStorage.setItem('userCheck',  userId)
+
                      navigate('/')
+
                })
+
                .catch((error) => {
                    Swal.fire({
                        icon: "error",
                        title: "Oops...",
-                       text: "Something went wrong!",
+                       text: {error},
                      });
+                     
                })
   
           }

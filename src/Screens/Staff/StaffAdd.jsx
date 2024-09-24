@@ -7,19 +7,19 @@ import { Button, Radio } from '@mui/material'
 
 const StaffFrom = () => {
 
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [age, setAge] = useState(0)
+    const [phone, setPhone] = useState(0)
+    const [cnic, setCnic] = useState(0)
     const [radio, setRadio] = useState('')
   
     const navigate =useNavigate()
   
     const userRegistration = {
-      firstName,
-      lastName,
+      name,
       email,
-      age,
+      cnic,
+      phone,
       radio
     }
   
@@ -29,12 +29,12 @@ const StaffFrom = () => {
   
     const handleSubmitRegister = async (e) => {
       e.preventDefault();
-     if(firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || age.trim() === 0 || radio === ''){
+     if(name.trim() === '' || email.trim() === '' || phone.trim() === 0 || cnic === 0 || radio === ''){
       alert('Please fill all value')
      }
      else{
       try {
-        const addRegister = addDoc(collection(db, "staffInformation"), userRegistration)
+        const addRegister = addDoc(collection(db, "staffSignUpInfo"), userRegistration)
           .then((response) => {
            alert("Staff Add Successfully..");
            navigate('/staff/staffList')
@@ -51,10 +51,10 @@ const StaffFrom = () => {
       <form className='Content'>
         <div className='Regis_Form'>
         <p className='Form-heading'>Registration Form</p>
-        <InputField onchange = {(e) => setFirstName(e.target.value)} label='First Name:' placeholder='Enter your first Name' type='text'/>
-        <InputField onchange = {(e) => setLastName(e.target.value)} label='Last Name:' placeholder='Enter your last name' type='text'/>
+        <InputField onchange = {(e) => setName(e.target.value)} label='Full Name:' placeholder='Enter your Full Name' type='text'/>
         <InputField onchange = {(e) => setEmail(e.target.value)} label='Email:' placeholder='Enter your email' type='email'/>
-        <InputField onchange = {(e) => setAge(e.target.value)} label='Age' placeholder='Enter your Age' type='number'/>
+        <InputField onchange = {(e) => setCnic(e.target.value)} label='CNIC:' placeholder='Enter your Cnic no' type='number'/>
+        <InputField onchange = {(e) => setPhone(e.target.value)} label='phone' placeholder='Enter your phone' type='number'/>
         <p>
       <label htmlFor="Gender" style={{color: '#016B1F', fontSize: 24}}>Gender</label>
       <p>
