@@ -35,6 +35,7 @@ const StaffList = () => {
         { field: 'id', headerName: 'ID', width: 150 },
         { field: 'name', headerName: 'Full name', width: 130 },
         { field: 'email', headerName: 'email', width: 130 },
+        { field: 'job', headerName: 'Job Roll', width: 100 },
         { field: 'cnic', headerName: 'CNIC',  width: 90,},
         { field: 'phone', headerName: 'Phone no', width: 100 },
         { field: 'radio', headerName: 'Radio', width: 100 },
